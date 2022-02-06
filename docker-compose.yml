@@ -2,10 +2,12 @@ version: '3'
 services:
   appache:
     image: httpd:2.4.52
-    ports:
-      - 80:80
     volumes:
       - "./src:/usr/local/apache2/htdocs"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.apache.rule=Host(`docker.for.mac.localhost`)"
+      - "traefik.http.services.apache.loadbalancer.server.port=80"
 
   database:
     image: mariadb
@@ -18,7 +20,18 @@ services:
   phpmyadmin:
     image: phpmyadmin
     restart: always
-    ports:
-      - 8080:80
     environment:
       - PMA_ARBITRARY=1
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.docker.for.mac.localhost`)"
+      - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
+
+  traefik:
+      image: "traefik:v2.6"
+      command: --api.insecure=true --providers.docker
+      ports:
+        - "80:80"
+        - "8080:8080"
+      volumes:
+        - "/var/run/docker.sock:/var/run/docker.sock:ro"
