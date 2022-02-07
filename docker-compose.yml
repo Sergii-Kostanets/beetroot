@@ -6,7 +6,7 @@ services:
       - "./src:/usr/local/apache2/htdocs"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.apache.rule=Host(`docker.for.mac.localhost`)"
+      - "traefik.http.routers.apache.rule=Host(`${PROJECT_BASE_URL}`)"
       - "traefik.http.services.apache.loadbalancer.server.port=80"
 
   database:
@@ -24,7 +24,7 @@ services:
       - PMA_ARBITRARY=1
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.docker.for.mac.localhost`)"
+      - "traefik.http.routers.phpmyadmin.rule=Host(`phpmyadmin.${PROJECT_BASE_URL}`)"
       - "traefik.http.services.phpmyadmin.loadbalancer.server.port=80"
 
   traefik:
