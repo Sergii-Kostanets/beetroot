@@ -1,9 +1,11 @@
 version: '3'
 services:
-  appache:
-    image: httpd:2.4.52
+  server:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     volumes:
-      - "./src:/usr/local/apache2/htdocs"
+      - "./src:/var/www/html"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.apache.rule=Host(`${PROJECT_BASE_URL}`)"
