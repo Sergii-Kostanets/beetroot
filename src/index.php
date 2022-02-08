@@ -9,10 +9,13 @@
 </head>
 
 <body>
+    
     <h1>Forms homework</h1>
+    
     <?php
     echo '<p>Привет из php</p>';
     ?>
+    
     <form action="GET">
         <fieldset>
             <legend>Контактная информация</legend>
@@ -31,4 +34,3 @@
 </body>
 
 </html>
-<!-- docker.for.mac.localhost or docker.for.mac.host.internal -->
