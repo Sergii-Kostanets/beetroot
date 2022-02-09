@@ -11,27 +11,56 @@
 <body>
 
     <h1>Forms homework</h1>
-
+    <!-- проверка раотоспособности php -->
     <?php
     echo '<p>Привет из php</p>';
     ?>
 
-    <form action="#" method="get">
+    <form action="postaction.php" method="post">
         <fieldset>
-            <legend>Контактная информация</legend>
+            <legend>Контактная информация (метод POST)</legend>
             <p>
                 <label for="name">Имя <em>*</em></label>
-                <input type="text" id="name" placeholder="Введите Ваше имя" autofocus>
+                <input required type="text" name="name" id="name" placeholder="Введите Ваше имя" autofocus>
             </p>
             <p>
-                <label for="email">E-mail</label>
-                <input type="email" id="email" placeholder="Введите Вашу электронную почту">
+                <label for="email">E-mail <em>*</em></label>
+                <input required type="email" name="email" id="email" placeholder="Введите Вашу электронную почту">
             </p>
             <p>
-                <label for="tel">Phone</label>
-                <input type="tel" id="tel" placeholder="Введите номер Вашего телефона">
+                <label for="tel">Телефон <em>*</em></label>
+                <input required type="tel" name="tel" id="tel" placeholder="Введите номер Вашего телефона">
+            </p>
+            <p>
+                <label for="msg">Сообщение</label>
+                <textarea id="msg" name="message"></textarea>
             </p>
             <p><input type="submit" value="Отправить"></p>
+            <p><input type="reset" value="Очистить"></p>
+
+        </fieldset>
+    </form>
+
+    <form action="getaction.php" method="get">
+        <fieldset>
+            <legend>Контактная информация (метод GET)</legend>
+            <p>
+                <label for="name">Имя <em>*</em></label>
+                <input required type="text" name="name" id="name" placeholder="Введите Ваше имя" autofocus>
+            </p>
+            <p>
+                <label for="email">E-mail <em>*</em></label>
+                <input required type="email" name="email" id="email" placeholder="Введите Вашу электронную почту">
+            </p>
+            <p>
+                <label for="tel">Телефон <em>*</em></label>
+                <input required type="tel" name="tel" id="tel" placeholder="Введите номер Вашего телефона">
+            </p>
+            <p>
+                <label for="msg">Сообщение</label>
+                <textarea id="msg" name="message"></textarea>
+            </p>
+            <p><input type="submit" value="Отправить"> или <input type="reset" value="Очистить"></p>
         </fieldset>
     </form>
 
