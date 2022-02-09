@@ -21,7 +21,8 @@
             <legend>Контактная информация (метод POST)</legend>
             <p>
                 <label for="name">Имя <em>*</em></label>
-                <input required type="text" name="name" id="name" placeholder="Введите Ваше имя" autofocus>
+                <input required type="text" name="name" id="name" placeholder="Введите Ваше имя"
+                    pattern="^[А-Яа-яЁёA-Za-z]{2,15}" title="Подсказка" autofocus>
             </p>
             <p>
                 <label for="email">E-mail <em>*</em></label>
