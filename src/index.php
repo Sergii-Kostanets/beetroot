@@ -32,7 +32,7 @@
             <p>
                 <label for="password">Пароль <em>*</em></label>
                 <input required type="password" name="password" id="password" placeholder="Введите Ваш пароль"
-                    pattern="^[А-Яа-яЁёA-Za-z]{2,15}" title="Подсказка" autofocus>
+                    pattern="^[A-Za-z]{2,15}" title="Подсказка" autofocus>
             </p>
             <p>
                 <label for="tel">Телефон <em>*</em></label>
