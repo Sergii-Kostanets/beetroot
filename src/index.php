@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML forms</title>
-    <link href="style.css" rel="stylesheet">
+    <link href="style/style.css" rel="stylesheet">
 </head>
 
 <body>
 
     <h1>Forms homework</h1>
-    <!-- проверка раотоспособности php -->
+
     <?php
     echo '<p>Привет из php</p>';
     ?>
 
-    <form action="postaction.php" method="post">
+    <form action="php/postaction.php" method="post">
         <fieldset>
             <legend>Контактная информация (метод POST)</legend>
             <p>
@@ -58,7 +58,7 @@
         </fieldset>
     </form>
 
-    <form action="getaction.php" method="get">
+    <form action="php/getaction.php" method="get">
         <fieldset>
             <legend>Контактная информация (метод GET)</legend>
             <p>
