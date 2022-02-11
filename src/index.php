@@ -10,7 +10,20 @@
 </head>
 
 <body>
-    
+
+    <div class="wrapper">
+        <div class="header">
+            <h1>Список дел</h1>
+            <input type="text" placeholder="Введите новое дело..." id="toDoEl" autofocus tabindex="1">
+            <span class="addBtn" onclick="newElement()" tabindex="2">Добавить</span>
+        </div>
+        <ul id="list">
+
+        </ul>
+    </div>
+
+    <script src="todo.js"></script>
+
 </body>
 
 </html>
