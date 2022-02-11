@@ -24,7 +24,7 @@
 
     <div id="todo">
         <h1>Мои списки дел <i id="pensil" class="fas fa-pencil-alt"></i></h1>
-        <input type="text" placeholder="Добавить список">
+        <input type="text" placeholder="Добавить список" autofocus>
         <ul class="todos">
             <li><span class="todo-text">Вымыть кухню</span><span class="todo-trash"><i
                         class="fas fa-trash-alt"></i></span></li>
