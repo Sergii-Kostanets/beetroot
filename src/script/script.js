@@ -1,24 +1,36 @@
-const btn = document.querySelector(".add");
-const inpt = document.querySelector(".message");
-const todo = document.querySelector(".todo")
+let addMessage = document.querySelector('.message'),
+    addButton = document.querySelector('.add'),
+    todo = document.querySelector('.todo')
 
-function newText() {
-    const messageText = document.createElement("li");
-    messageText.className = "task";
-    messageText.innerText = inpt.value;
-    todo.appendChild(messageText);
-    inpt.value = ""
+let todoList = []
+
+if (localStorage.getItem('todo')) {
+    todoList = JSON.parse(localStorage.getItem('todo'))
 }
 
-btn.addEventListener("click", newText);
+addButton.addEventListener('click', function () {
 
+    let newTodo = {
+        todo: addMessage.value,
+        checked: false,
+        important: false,
+    }
 
-
-const li = document.querySelectorAll(".task");
-
-li.forEach((i) => {
-    i.addEventListener("click", () => {
-        i.classList.toggle("active");
-    })
+    todoList.push(newTodo)
+    displayMessages()
+    localStorage.setItem('todo', JSON.stringify(todoList))
 })
 
+function displayMessages() {
+    let displayMessage = ''
+    todoList.forEach(function (item, i) {
+        displayMessage += `
+        <li>
+        <input type='checkbox' id='item_${i}' ${item.checked ? 'checked' : ''}>
+        <label for='item_${i}'>${item.todo}</lebel>
+        </li>
+        `
+        todo.innerHTML = displayMessage
+    })
+
+}
