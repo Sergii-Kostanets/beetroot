@@ -1,5 +1,3 @@
-/* взял готовые стили из примера, потом переделать с помощью бутстрапа */
-
 body {
   background-color: #FFD78A;
   font-family: sans-serif;
@@ -87,3 +85,11 @@ input[type=checkbox]:checked + label:before {
   -ms-transform: rotate(45deg);
   border-radius: 0;
   margin: 0 15px 5px 5px; }
+
+  .task {
+    cursor: pointer;
+  }
+
+  .active {
+    text-decoration: line-through;
+  }

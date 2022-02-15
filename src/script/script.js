@@ -1,12 +1,24 @@
 const btn = document.querySelector(".add");
 const inpt = document.querySelector(".message");
+const todo = document.querySelector(".todo")
 
 function newText() {
-    inpt.
-    let message = "";
-    console.log(message);
+    const messageText = document.createElement("li");
+    messageText.className = "task";
+    messageText.innerText = inpt.value;
+    todo.appendChild(messageText);
+    inpt.value = ""
 }
 
-
 btn.addEventListener("click", newText);
+
+
+
+const li = document.querySelectorAll(".task");
+
+li.forEach((i) => {
+    i.addEventListener("click", () => {
+        i.classList.toggle("active");
+    })
+})
 

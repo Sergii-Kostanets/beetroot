@@ -19,7 +19,7 @@
 
             <div class="create-new-todo">
 
-                <input type="text" class="message" name="task" id="new-task" placeholder="Напишите задание">
+                <input type="text" class="message" name="task" id="new-task" placeholder="Напишите задание" autofocus>
                 <button class="add">Добавить</button>
 
             </div>
