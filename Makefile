@@ -12,3 +12,6 @@ start:
 
 stop:
 	docker-compose stop
+
+del:
+	docker system prune -a
