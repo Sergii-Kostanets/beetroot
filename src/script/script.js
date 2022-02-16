@@ -36,8 +36,6 @@ function displayMessages() {
 }
 
 todo.addEventListener('change', function (event){
-    let idInput = event.target.getAttribute('id')
-    let forLabel = todo.querySelector('[for=' + idInput + ']')
-    let valueLabel = forLabel.innerHTML;
+    let valueLabel = todo.querySelector('[for=' + event.target.getAttribute('id') + ']').innerHTML;
     console.log('valueLabel: ', valueLabel)
 })
