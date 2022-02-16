@@ -1,10 +1,14 @@
+. {
+  box-sizing: content-box;
+}
+
 body {
   background-color: #FFD78A;
   font-family: sans-serif;
   -webkit-box-sizing: content-box;
   box-sizing: content-box; }
 
-.container {
+.container-fluid {
   margin: 0 auto;
   padding-top: 50px; }
 
@@ -30,15 +34,18 @@ h1 {
   font-size: 30px; }
 
 .create_new_todo {
-  text-align: center; }
+  text-align: center;
+  height: 3rem;
+  display: flex; }
 
 input[type=text] {
-  width: 376px;
+  width: 50%;
+  height: 3rem;
   padding: 10px; }
 
 button {
-  margin-top: 10px;
-  width: 400px;
+  width: 50%;
+  height: 3rem;
   padding: 10px;
   cursor: pointer; }
 
