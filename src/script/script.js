@@ -28,10 +28,16 @@ function displayMessages() {
         displayMessage += `
         <li>
         <input type='checkbox' id='item_${i}' ${item.checked ? 'checked' : ''}>
-        <label for='item_${i}'>${item.todo}</lebel>
+        <label for='item_${i}'>${item.todo}</label>
         </li>
         `
         todo.innerHTML = displayMessage
     })
-
 }
+
+todo.addEventListener('change', function (event){
+    let idInput = event.target.getAttribute('id')
+    let forLabel = todo.querySelector('[for=' + idInput + ']')
+    let valueLabel = forLabel.innerHTML;
+    console.log('valueLabel: ', valueLabel)
+})
