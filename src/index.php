@@ -16,7 +16,7 @@
             <h1>ToDo List</h1>
             <div class="create_new_todo">
                 <input type="text" class="message" placeholder="Описание" autofocus>
-                <button class="add">Добавить задачу</button>
+                <button class="add">Добавить</button>
             </div>
             <div class="wrapper">
                 <ul class="todo"></ul>
