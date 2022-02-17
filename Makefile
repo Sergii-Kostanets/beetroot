@@ -2,7 +2,7 @@ hello:
 	echo "hello world"
 
 up:
-	docker-compose up -d --build
+	docker-compose up -d --build --remove-orphans
 
 down:
 	docker-compose down
