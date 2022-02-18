@@ -15,7 +15,7 @@
 <body>
 
     <?php
-        require "./db.php";
+        require "db.php";
     ?>
 
     <h1>Learning PHP</h1>
