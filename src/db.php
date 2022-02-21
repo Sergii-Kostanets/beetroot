@@ -1,10 +1,17 @@
 <?php
 
-require "./libs/rb.php";
-R::setup(
-    'mysql:host=phpmyadmin.${PROJECT_BASE_URL};dbname=db',
-    'root',
-    'admin'
-); //for both mysql or mariaDB
+function dbConnect(): PDO
+{
+  static $db;
+
+  if ($db === null) {
+    $db = new PDO('mysql:host=db;dbname=test', 'root', 'root', [
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
+
+    $db->exec('SET NAMES UTF8');
+  }
+  return $db;
+}
 
 ?>
