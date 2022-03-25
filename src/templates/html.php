@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <p>TEST</p>
     <?php print $content; ?>
     <hr>
     <?php print $time ?>

@@ -10,6 +10,7 @@ class Router {
     }
 
     public function dispatch(string $request_uri) {
+
         if (!empty($this->routes[$request_uri])) {
             $template = $this->routes[$request_uri]['template'];
             $title = $this->routes[$request_uri]['title'];
@@ -17,6 +18,10 @@ class Router {
             $title = 'Page not found';
             $template = 'not-found';
         }
+
+        $content = $this->viewTemplate($template);
+
+        return $this->viewWrapper($title, $content);
     }
 
     public function viewWrapper(string $title, string $content){
