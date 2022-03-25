@@ -9,37 +9,14 @@ class Router {
         $this->routes = $routes;
     }
 
-    public function dispatch(string $request_uri){
-
-        if(!empty($this->routes[$request_uri])){
+    public function dispatch(string $request_uri) {
+        if (!empty($this->routes[$request_uri])) {
             $template = $this->routes[$request_uri]['template'];
             $title = $this->routes[$request_uri]['title'];
-        }else{
+        } else {
             $title = 'Page not found';
             $template = 'not-found';
         }
-
-    //     switch ($request_uri) {
-    //         case '/':
-    //             $title = 'Main page';
-    //             $template = 'homepage';
-    //             break;
-    //         case '/posts':
-    //             $title = 'List of posts';
-    //             $template = 'posts';
-    //             break;
-    //         case '/users':
-    //             $title = 'List of users';
-    //             $template = 'users';
-    //             break;
-    //         default:
-    //             $title = 'Page not found';
-    //             $template = 'not-found';
-    //             break;
-    //     }
-    //     $content = $this->viewTemplate($template);
-
-    //     return $this->viewWrapper($title, $content);
     }
 
     public function viewWrapper(string $title, string $content){
