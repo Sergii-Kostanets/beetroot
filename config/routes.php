@@ -1,18 +1,9 @@
 <?php
 
 return [
-    '/' => [
-        'title' => 'Homepage',
-        'template' => 'homepage',
-    ],
-    '/posts' => [
-        'title' => 'List of posts',
-        'template' => 'posts',
-    ],
-    '/users' => [
-        'title' => 'List of users',
-        'template' => 'users',
-    ],
+    '/' => \App\Controllers\Homepage::class,
+    '/posts' => \App\Controllers\Posts::class,
+    '/users' => \App\Controllers\Users::class,
 ];
 
 ?>

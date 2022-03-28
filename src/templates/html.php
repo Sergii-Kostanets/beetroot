@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <p>TEST</p>
+    <h2>TEST</h2>
     <?php print $content; ?>
     <hr>
     <?php print $time ?>
