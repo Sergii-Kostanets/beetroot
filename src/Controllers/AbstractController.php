@@ -14,14 +14,14 @@ abstract class AbstractController{
         return ob_get_clean();
     }
 
-    public function viewTemplate(string $template){
+    public function viewTemplate(string $template, array $variables){
         $template_file = __DIR__ . '/../templates/' . $template . '.html.php';
 
         // dont need this?
         if (!file_exists($template_file)) {
             $template_file = '/../templates/not-found.html.php';
         }
-
+        extract($variables);
         ob_start();
         include $template_file;
         $output = ob_get_clean();

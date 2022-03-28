@@ -2,4 +2,6 @@
 <?
 header('Location /users');
 ?>
-<?php print 'test'; ?>
+<?php print $variables['current_user']; ?>
+<br>
+<?php print $current_user; ?>
