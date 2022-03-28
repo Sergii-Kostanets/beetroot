@@ -6,7 +6,9 @@ class NotFound extends AbstractController{
 
     public function view(){
 
-        $content = $this->viewTemplate('not-found');
+        $content = $this->viewTemplate('not-found', [
+            'current_not-found' => 'None',
+        ]);
         $title = 'Page not found ' . time();
 
         return $this->viewWrapper($title, $content);

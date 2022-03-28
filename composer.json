@@ -1,5 +1,5 @@
 {
-    "name": "root/www",
+    "name": "Sergii-Kostanets/beetroot-docker",
     "autoload": {
         "psr-4": {
             "App\\": "src/"

@@ -21,7 +21,7 @@ abstract class AbstractController{
         if (!file_exists($template_file)) {
             $template_file = '/../templates/not-found.html.php';
         }
-        extract($variables);
+
         ob_start();
         include $template_file;
         $output = ob_get_clean();
