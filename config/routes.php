@@ -7,6 +7,7 @@ return [
     '/posts' => \App\Controllers\Posts::class,
     '/users' => \App\Controllers\Users::class,
     '/api/users' => ApiUsers::class,
+    '/todos' => \App\Controllers\Todos::class,
 ];
 
 ?>

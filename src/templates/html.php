@@ -9,10 +9,7 @@
 </head>
 
 <body>
-    <h2>TEST</h2>
-    <?php print $content; ?>
-    <hr>
-    <?php print $time ?>
+    <p><em>Page generated at <?php print $time; ?></em></p>
     <hr>
     <a href="./">Main page</a>
     <br>
@@ -22,6 +19,11 @@
     <br>
     <a href="./randomnotfoundtest">Random page</a>
     <br>
+    <a href="./api/users">ApiUsers</a>
+    <br>
+    <a href="./todos">ToDo's</a>
+    <hr>
+    <?php print $content; ?>
 </body>
 
 </html>
