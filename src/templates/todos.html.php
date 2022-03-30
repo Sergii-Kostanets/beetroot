@@ -2,4 +2,4 @@
 
 <?php foreach ($variables['items'] as $item) : ?>
 <p><?php print $item->getName(); ?></p>
-<?php endforeach ; ?>
+<?php endforeach; ?>
