@@ -5,10 +5,8 @@ namespace App;
 class Router {
 
     private $routes = [];
-    private Database $db;
-    public function __construct(array $routes, Database $db){
+    public function __construct(array $routes){
         $this->routes = $routes;
-        $this->db = $db;
     }
 
     public function dispatch(string $request_uri) {
@@ -18,7 +16,7 @@ class Router {
         }else{
             $className = \App\Controllers\NotFound::class;
         }
-        $controller = new $className($this->db);
+        $controller = new $className();
         return $controller->view();
     }
 }

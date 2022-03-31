@@ -23,10 +23,10 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_USER: ${DB_ROOT_USER}
-      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASS}
       MYSQL_DATABASE: ${DB_DATABASE}
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.0
