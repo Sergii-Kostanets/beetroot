@@ -2,18 +2,21 @@
 
 namespace App\Controllers;
 
-use App\Database;
 use App\Models\Todo;
 
 class Todos extends AbstractController {
     public function view() {
-        $items = [];
-        // $items[] = new Todo('Todo 1');
-        // $items[] = new Todo('Todo 2');
-        // $items[] = new Todo('Todo 3');
-        $content = $this->viewTemplate('todos', [
-            'items' => $items,
-        ]);
+        $vars = [];
+        $entityManager = getEntityManager();
+        if  (!empty($_POST)){
+            $todo = new Todo($_POST['name'], !empty($_POST['active']));
+            $entityManager->persist($todo);
+            $entityManager->flush();
+            $vars['new_todo'] = $todo;
+        }
+        $todoRepository = $entityManager->getRepository(Todo::class);
+        $vars['items'] = $todoRepository->findAll();
+        $content = $this->viewTemplate('todos', $vars);
         $title = 'Todo list';
 
         return $this->viewWrapper($title, $content);
