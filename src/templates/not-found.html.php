@@ -1,5 +1,1 @@
-<h1>Page not found.</h1>
-<?
-header('Location /users');
-?>
-<?php print $variables['current_not-found']; ?>
+<h1 class="text-center">Page not found</h1>

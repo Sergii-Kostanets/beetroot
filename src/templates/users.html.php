@@ -1,4 +1,4 @@
-<h1>Users</h1>
+<h1 class="text-center">Users</h1>
 <?
 header('Location /users');
 ?>
