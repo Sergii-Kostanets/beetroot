@@ -9,7 +9,6 @@ hello:
 
 up:
 	@echo "Up $(PROJECT_NAME)!"
-	docker-compose pull
 	docker-compose up -d --build --remove-orphans
 
 down:
@@ -47,11 +46,8 @@ one:
 	export COMPOSE_DOCKER_CLI_BUILD=1
 
 pull:
-	@echo "Pulling php:8.0-apache:"
-	docker pull php:8.0-apache
-	@echo "Pulling mysql:5.6:"
-	docker pull mysql:5.6
-	@echo "Pulling phpmyadmin/phpmyadmin:5.0:"
-	docker pull phpmyadmin/phpmyadmin:5.0
-	@echo "Pulling traefik:v2.6.1:"
-	docker pull traefik:v2.6.1
+	@echo "Pulling php:7.4-apache:"
+	docker pull php:7.4-apache
+	@echo "___________________________________________"
+	@echo "Pulling traefik:v2.6"
+	docker pull traefik:v2.6

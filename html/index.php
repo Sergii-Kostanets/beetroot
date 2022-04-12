@@ -1,13 +1,22 @@
 <?php
 
-require_once '../vendor/autoload.php';
-require_once '../bootstrap.php';
+require '../vendor/autoload.php';
 
-use App\Router;
+use TestApp\Product;
+use TestApp\ProductRepository;
 
-$routes = require '../config/routes.php';
-$database = new App\Database(getenv('DB_DATABASE'), getenv('DB_ROOT_USER'), getenv('DB_ROOT_PASS'), getenv('DB_DATABASE_NAME'));
-$router = new Router($routes, $database);
-$request_uri = $_SERVER['REQUEST_URI'];
-print $router->dispatch(parse_url($request_uri, PHP_URL_PATH));
-?>
+foreach (range(1, 5) as $i){
+    (new Product())
+        ->setId($i)
+        ->setName('Test' . $i)
+        ->setPrice(123 * $i)
+        ->save();
+}
+
+// echo '<pre>', var_dump($repository), '</pre>';
+
+$product3 = Product::load(3);
+$product3->setPrice(123);
+$product3->save();
+
+echo '<pre>', var_dump($product3->getName()), '</pre>';

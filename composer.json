@@ -1,14 +1,11 @@
 {
-    "name": "sergii-kostanets/beetroot-docker",
+    "name": "test/app",
+    "require": {
+        "pimple/pimple": "3.5"
+    },
     "autoload": {
         "psr-4": {
-            "App\\": "src/"
+            "TestApp\\": "src/"
         }
-    },
-    "require": {
-        "doctrine/orm": "^2.11",
-        "symfony/cache": "^6.0",
-        "doctrine/doctrine-bundle": "^2.6",
-        "doctrine/annotations": "^1.13"
     }
 }
