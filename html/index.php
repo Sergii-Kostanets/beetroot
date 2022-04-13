@@ -2,21 +2,17 @@
 
 require '../vendor/autoload.php';
 
-use TestApp\Product;
+use Pimple\Container;
+use TestApp\Controllers\ProductController;
+use TestApp\FileDatabase;
+use TestApp\MailSender;
 use TestApp\ProductRepository;
 
-foreach (range(1, 5) as $i){
-    (new Product())
-        ->setId($i)
-        ->setName('Test' . $i)
-        ->setPrice(123 * $i)
-        ->save();
-}
+$container = new Container();
 
-// echo '<pre>', var_dump($repository), '</pre>';
+$container['database_file'] = '/tmp/database.txt';
 
-$product3 = Product::load(3);
-$product3->setPrice(123);
-$product3->save();
-
-echo '<pre>', var_dump($product3->getName()), '</pre>';
+$container[FileDatabase::class] = [FactoryDatabase::class, 'factory'];
+$container[ProductRepository::class] = [ProductRepository::class, 'factory'];
+$container[MailSender::class] = [MailSender::class, 'factory'];
+$container[ProductController::class] = [ProductController::class, 'factory'];

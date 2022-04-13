@@ -1,0 +1,48 @@
+<?php
+
+namespace TestApp\Controllers;
+
+use Pimple\Psr11\Container;
+use TestApp\MailSender;
+use TestApp\Product;
+use TestApp\ProductRepository;
+
+class ProductController
+{
+    /**
+     * @var \TestApp\ProductRepository
+     *
+     */
+    private ProductRepository $repository;
+    /**
+     * @var \TestApp\MailSender
+     *
+     */
+    private MailSender $mailSender;
+
+    public function __construct(ProductRepository $repository, MailSender $mailSender)
+    {
+        $this->repository = $repository;
+        $this->mailSender = $mailSender;
+    }
+
+    public static function factory(Container $container)
+    {
+        return new ProductController(
+            $container[ProductRepository::class],
+            $container[MailSender::class]
+        );
+    }
+
+    public function addProduct($id)
+    {
+        if(!empty($_POST)){
+            $product = (new Product())
+                ->setPrice($_POST['price'])
+                ->setName($_POST['name'])
+                ->setId(rand(1,500));
+            $this->repository->add($product);
+            $this->mailSender->sentNewProductAddedEmail($product);
+        }
+    }
+}

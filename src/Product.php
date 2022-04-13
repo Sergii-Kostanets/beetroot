@@ -8,16 +8,6 @@ class Product
     private string $name;
     private int $price;
 
-    public static function load($id): ?Product
-    {
-        return ProductRepository::getInstance()->get($id);
-    }
-
-    public function save()
-    {
-        ProductRepository::getInstance()->add($this);
-    }
-
     /**
      * @return int
      */

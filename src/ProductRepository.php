@@ -2,34 +2,28 @@
 
 namespace TestApp;
 
+use Pimple\Container;
+
 class ProductRepository
 {
     /**
-     * @var \TestApp\Product[]
+     * @var \TestApp\FileDatabase
      */
-    private array $storage;
+    private FileDatabase $storage;
 
-    private static $instance;
-
-    public static function getInstance(){
-        if(empty(self::$instance)){
-            self::$instance = new self();
-        }
-        return self::$instance;
+    public static function factory(Container $container)
+    {
+        return new ProductRepository($container[FileDatabase::class]);
     }
 
-    private function __construct()
+    public function __construct(FileDatabase $storage)
     {
-
+        $this->storage = $storage;
     }
 
     public function add(Product $product)
     {
-        $this->storage[$product->getId()] = $product;
+        $this->storage->insert($product->getId(), $product);
     }
 
-    public function get($id): Product
-    {
-        return $this->storage[$id];
-    }
 }
